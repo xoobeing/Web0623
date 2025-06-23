@@ -1,4 +1,7 @@
 // basicChatbotMain.js
+console.log("✅ 환경변수 확인:", import.meta.env.VITE_OPENAI_API_KEY);
+
+
 const chatBox   = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 const sendBtn   = document.getElementById("send-button");
