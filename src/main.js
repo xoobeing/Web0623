@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', () => {
     Swal.fire({
       title: '경고!',
-      text: '김현우 바보💕⎛⑉・⊝・⑉⎞',
+      text: '바보⎛⑉・⊝・⑉⎞',
       icon: 'warning',
       confirmButtonText: '누르지 말랬는데 왜눌렀어.',
       background: '#fff0f5', // 파스텔 배경
