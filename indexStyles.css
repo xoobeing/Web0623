@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffe6f0; /* 파스텔 핑크 배경 */
+  color: #7a304d;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+h1 {
+  color: #d36c9c;
+}
+
+#dangerButton {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: #ffb6c1; /* 라이트 핑크 */
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+#dangerButton:hover {
+  background-color: #ff91a4; /* 좀 더 진한 핑크 */
+}
