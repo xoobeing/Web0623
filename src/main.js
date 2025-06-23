@@ -1,4 +1,4 @@
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 
 document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('dangerButton');
