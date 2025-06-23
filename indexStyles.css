@@ -12,9 +12,11 @@ body {
 
 h1 {
   color: #d36c9c;
+  margin-bottom: 30px;
 }
 
-#dangerButton {
+#dangerButton,
+#chatbotButton {
   padding: 15px 30px;
   font-size: 16px;
   background-color: #ffb6c1; /* 라이트 핑크 */
@@ -22,10 +24,13 @@ h1 {
   border-radius: 10px;
   color: white;
   cursor: pointer;
+  margin: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-#dangerButton:hover {
-  background-color: #ff91a4; /* 좀 더 진한 핑크 */
+#dangerButton:hover,
+#chatbotButton:hover {
+  background-color: #ff91a4; /* 진한 핑크 */
+  transform: scale(1.05);
 }

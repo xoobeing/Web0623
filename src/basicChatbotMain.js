@@ -1,8 +1,10 @@
-const chatBox = document.getElementById("chat-box");
+// basicChatbotMain.js
+const chatBox   = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
-const sendButton = document.getElementById("send-button");
+const sendBtn   = document.getElementById("send-button");
 
-sendButton.addEventListener("click", async () => {
+// 메인 전송 함수 (클릭 + 엔터 둘 다 사용)
+async function sendMessage() {
   const userMessage = userInput.value.trim();
   if (!userMessage) return;
 
@@ -22,22 +24,33 @@ sendButton.addEventListener("click", async () => {
       }),
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    const data = await response.json();
+    const data       = await response.json();
     const botMessage = data.choices[0].message.content;
     appendMessage("🤖 챗봇", botMessage);
-  } catch (error) {
-    console.error("Error:", error);
+  } catch (err) {
+    console.error(err);
     appendMessage("❗ 오류", "챗봇 응답 중 문제가 발생했습니다.");
+  }
+}
+
+// ▶ 버튼 클릭 시 전송
+sendBtn.addEventListener("click", sendMessage);
+
+// ▶ Enter 키 전송 & Shift+Enter 줄바꿈
+userInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    if (e.shiftKey) return;   // Shift+Enter = 줄바꿈
+    e.preventDefault();       // 폼 제출·개행 방지
+    sendMessage();
   }
 });
 
+// 채팅창에 메시지 추가
 function appendMessage(sender, text) {
-  const messageDiv = document.createElement("div");
-  messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-  chatBox.appendChild(messageDiv);
+  const msg = document.createElement("div");
+  msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  chatBox.appendChild(msg);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
